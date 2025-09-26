@@ -1,0 +1,154 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-blanco);
+  box-shadow: var(--sombra);
+  height: var(--altura-cabecera-movil);
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  padding: 0 1rem;
+}
+
+.contenedor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo-navegacion {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--color-principal);
+  cursor: pointer;
+}
+
+.logo svg {
+  width: 28px;
+  height: 28px;
+  margin-right: 0.5rem;
+  fill: var(--color-principal);
+}
+
+.navegacion-principal {
+  display: flex;
+  gap: 1rem;
+}
+
+.enlace-navegacion {
+  text-decoration: none;
+  color: var(--color-texto);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.enlace-navegacion:hover {
+  color: var(--color-principal);
+}
+
+.barra-busqueda {
+  display: flex;
+  align-items: center;
+  background: var(--color-secundario);
+  border-radius: 24px;
+  padding: 0.4rem 0.8rem;
+  flex: 1;           
+  min-width: 180px;   
+  max-width: 400px;
+  margin: 0 1rem;
+}
+
+.barra-busqueda input {
+  flex: 1;
+  min-width: 0;       
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.barra-busqueda button {
+  flex-shrink: 0;     
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+}
+
+.barra-busqueda button svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-texto);
+}
+
+.derecha-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0; 
+}
+
+.boton-icono, .boton-perfil {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.imagen-perfil {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.boton-icono svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-texto);
+}
+
+@media (max-width: 768px) {
+  .navegacion-principal {
+    display: none;
+  }
+  .barra-busqueda {
+    flex: 1;
+    max-width: none;
+    margin: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .barra-busqueda {
+    margin: 0 0.25rem;
+    padding: 0.3rem 0.6rem;
+    min-width: 150px;
+  }
+  .imagen-perfil {
+    width: 28px;
+    height: 28px;
+  }
+  .boton-icono svg {
+    width: 20px;
+    height: 20px;
+  }
+  .derecha-header {
+    gap: 0.5rem;
+  }
+}
