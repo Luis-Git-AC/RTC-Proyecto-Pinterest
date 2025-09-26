@@ -1,6 +1,7 @@
 import { obtenerImagenesIniciales, buscarImagenes } from './api/unsplash.js';
-import Header from './componentes/Header.js';
-import ImageGrid from './componentes/ImageGrid.js';
+import Header from './componentes/Header/Header.js';
+import ImageGrid from './componentes/ImageGrid/ImageGrid.js';
+
 
 export default function App() {
     const aplicacion = document.getElementById('app');

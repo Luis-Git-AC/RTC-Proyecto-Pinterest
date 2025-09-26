@@ -1,3 +1,5 @@
+import './image-card.css';
+
 export default function ImageCard({ imagen, alClic }) {
     const tarjeta = document.createElement('div');
     tarjeta.className = 'image-card';

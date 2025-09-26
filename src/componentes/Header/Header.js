@@ -1,3 +1,5 @@
+import './header.css';
+
 export default function Header({ alBuscar, alClicLogo }) {
     const header = document.createElement('header');
     header.className = 'header';
