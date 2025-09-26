@@ -14,4 +14,5 @@ export function mostrarMensaje(mensaje) {
             divMensaje.remove();
         }
     }, 3000);
+
 }
