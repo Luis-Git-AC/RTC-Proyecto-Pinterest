@@ -1,6 +1,6 @@
 import Header from './componentes/Header/Header.js';
 import ImageGrid from './componentes/ImageGrid/ImageGrid.js';
-import { cargarImagenesIniciales, manejarBusqueda } from './logica/imagenes.js';
+import { cargarImagenes } from './logica/imagenes.js';
 
 export default function App() {
     const aplicacion = document.getElementById('app');
@@ -14,12 +14,25 @@ export default function App() {
 
     Header({
         alBuscar: (consulta) =>
-            manejarBusqueda(consulta, cuadriculaImagenes, (imagenes) => (imagenesActuales = imagenes)),
+            cargarImagenes({
+                tipo: 'search',
+                consulta,
+                cuadriculaImagenes,
+                setImagenesActuales: (imagenes) => (imagenesActuales = imagenes)
+            }),
         alClicLogo: () =>
-            cargarImagenesIniciales(cuadriculaImagenes, (imagenes) => (imagenesActuales = imagenes))
+            cargarImagenes({
+                tipo: 'random',
+                cuadriculaImagenes,
+                setImagenesActuales: (imagenes) => (imagenesActuales = imagenes)
+            })
     });
 
-    cargarImagenesIniciales(cuadriculaImagenes, (imagenes) => (imagenesActuales = imagenes));
+    cargarImagenes({
+        tipo: 'random',
+        cuadriculaImagenes,
+        setImagenesActuales: (imagenes) => (imagenesActuales = imagenes)
+    });
 
     return aplicacion;
 }
