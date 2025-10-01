@@ -4,7 +4,7 @@ import ImageCard from '../ImageCard/ImageCard.js';
 
 
 export default function ImageGrid({ imagenes, alClicImagen }) {
-    const cuadricula = document.createElement('div');
+    const cuadricula = document.createElement('main');
     cuadricula.className = 'image-grid';
     cuadricula.id = 'image-grid';
     
