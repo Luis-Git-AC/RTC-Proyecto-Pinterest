@@ -1,0 +1,285 @@
+.image-card {
+    background: var(--color-blanco);
+    border-radius: var(--radio-borde);
+    overflow: visible;
+    box-shadow: var(--sombra);
+    transition: var(--transicion);
+    cursor: pointer;
+}
+
+.image-card:hover .image-container img {
+    transform: scale(1.05);
+}
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 1/1.7; 
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radio-borde) var(--radio-borde) ;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.image-card { position: relative; }
+.card-overlay {
+    position: absolute;
+    inset: 0 0 0 0;
+    display: flex;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+.card-overlay .overlay-top-left,
+.card-overlay .overlay-top-right {
+    position: absolute;
+    top: 8px;
+}
+
+.card-overlay .upload-date {
+    margin-top: 8px;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.8rem;
+    line-height: 1;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.card-overlay .upload-date time {
+    display: inline-block;
+    background: rgba(0,0,0,0.28);
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.overlay-center > div { display:inline-flex; flex-direction:column; align-items:center; gap:6px; }
+
+.card-overlay .upload-date {
+    margin-top: 6px;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.82rem;
+    line-height: 1;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-overlay .upload-date .icon-upload { color: #fff; opacity: 0.95; }
+
+.card-overlay .upload-date time { background: transparent; padding: 0; border-radius: 0; font-weight: 600; color: #fff; }
+
+.author-avatar-overlay {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -22px;
+    z-index: 20;
+    pointer-events: auto;
+}
+
+.author-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--author-border-color, #ffffff);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+    transition: transform 0.18s ease;
+    transform-origin: center center;
+}
+
+.image-card.hovered .author-avatar {
+    transform: scale(1.06);
+}
+
+.author-name-overlay {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -36px;
+    z-index: 19;
+    font-size: 0.9rem;
+    color: var(--color-texto, #222);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+    pointer-events: none; 
+    line-height: 1.1;
+    transform-origin: center center;
+}
+
+.image-card.hovered .author-name-overlay {
+    transform: translateX(-50%) !important;
+}
+
+@media (max-width: 480px) {
+    .author-name-overlay {
+        bottom: -32px;
+        font-size: 0.75rem;
+        max-width: 120px;
+    }
+}
+
+.card-overlay .overlay-top-left { left: 8px; }
+.card-overlay .overlay-top-right { right: 8px; }
+
+.badge {
+    margin-top: 25px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    pointer-events: auto;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    box-shadow: var(--sombra);
+    font-weight: 600;
+
+    white-space: normal;
+    font-size: 0.82rem;
+    padding: 6px;
+
+    --badge-bg: rgba(255,255,255,0.95);
+    --badge-color: #222;
+    --badge-icon-color: var(--badge-color);
+    --badge-text-color: var(--badge-color);
+    background: var(--badge-bg);
+    color: var(--badge-text-color);
+}
+
+.card-overlay .badge {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.image-card.hovered .card-overlay .upload-date {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.badge.views {
+    --badge-bg: rgba(255,255,255,0.95);
+    --badge-color: #222;
+    --badge-icon-color: #000000;
+    --badge-text-color: rgb(80, 80, 80);
+}
+
+.badge.likes {
+    --badge-bg: var(--color-blanco);
+    --badge-color: var(--color-principal);
+    --badge-icon-color: var(--color-principal);
+    --badge-text-color: rgb(80, 80, 80);
+}
+
+@media (max-width: 480px) {
+    .badge {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        font-size: 0.72rem;
+        padding: 5px;
+        gap: 3px;
+    }
+
+    .badge svg { width: 14px; height: 14px; }
+
+    .btn-visitar {
+        padding: 7px 16px;
+        font-size: 0.7rem;
+    }
+}
+
+.badge svg { width: 24px; height: 24px; display: block; color: var(--badge-icon-color); }
+
+.badge .views-count,
+.badge .likes-count {
+    font-weight: 700;
+    font-size: 0.6rem;
+    line-height: 1;
+    text-align: center;
+    color: var(--badge-text-color);
+    display: block;
+}
+
+.badge .icon-heart {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    transition: transform 0.14s ease, filter 0.14s ease;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.12));
+}
+.image-card.hovered .badge.likes .icon-heart {
+    transform: scale(1.08);
+}
+
+.overlay-center {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.btn-visitar {
+    background: var(--color-principal);
+    color: var(--color-blanco);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.btn-visitar:hover { filter: brightness(0.95); }
+
+.image-card.hovered .btn-visitar {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.image-card.hovered .card-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.5) 100%);
+}
+
+.image-card.hovered .card-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.image-card.hovered .card-overlay .badge {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
+
+
+
